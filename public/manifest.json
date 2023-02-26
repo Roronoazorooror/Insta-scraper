@@ -1,0 +1,50 @@
+{
+  "name": "Instagram Scraper",
+  "version": "0.1.0",
+  "description": "Instagram Scraper",
+  "options_page": "options.html",
+ 
+  "permissions": [
+    "tabs",
+    "bookmarks",
+    "activeTab",
+    "browsingData",
+    "unlimitedStorage",
+    "downloads",
+    "cookies",
+    "storage",
+    "declarativeContent"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.bundle.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "allFrames" : true,
+      "js": [ "contentScript.bundle.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/bookmark.png",
+        "assets/play.png",
+        "assets/delete.png",
+        "assets/save.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
+    },
+    "default_title": "YouTube Scraper"
+    
+  },
+  "manifest_version": 3
+}
